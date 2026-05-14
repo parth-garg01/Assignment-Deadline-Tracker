@@ -144,13 +144,20 @@ async function sendEmailReminder(assignment, settings) {
     },
     body: JSON.stringify(emailData)
   });
-  
+
+  // Read response as text first because EmailJS may return plain text like "OK"
+  const respText = await response.text();
+
   if (!response.ok) {
-    const error = await response.text();
-    throw new Error(`EmailJS error: ${error}`);
+    throw new Error(`EmailJS error: ${respText}`);
   }
-  
-  return response.json();
+
+  // Try to parse JSON; if it fails, return the raw text (e.g., "OK")
+  try {
+    return JSON.parse(respText);
+  } catch (e) {
+    return respText;
+  }
 }
 
 /**
