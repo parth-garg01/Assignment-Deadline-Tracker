@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deadline Sentinel</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="popup-container">
+        <div class="header">
+            <h1 class="title">📋 Deadline Sentinel</h1>
+            <button id="settingsBtn" class="settings-btn" title="Open Settings">⚙️</button>
+        </div>
+
+        <div class="content">
+            <!-- Status Section -->
+            <div class="status-section">
+                <div class="status-item">
+                    <span class="status-label">Tracked Assignments:</span>
+                    <span class="status-value" id="totalCount">0</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Reminders Enabled:</span>
+                    <span class="status-value" id="remindersStatus">❌ Not configured</span>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button id="syncBtn" class="btn btn-primary">🔄 Sync Assignments</button>
+                <button id="refreshBtn" class="btn btn-secondary">🔃 Refresh</button>
+            </div>
+
+            <!-- Upcoming Assignments -->
+            <div class="assignments-section">
+                <h2>📅 Upcoming Deadlines</h2>
+                <div id="assignmentsList" class="assignments-list">
+                    <div class="placeholder">No assignments tracked yet. Click "Sync Assignments" to get started.</div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="activity-section">
+                <h2>⏰ Recent Activity</h2>
+                <div id="activityLog" class="activity-log">
+                    <div class="placeholder">No recent activity</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <small>Last sync: <span id="lastSync">Never</span></small>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
